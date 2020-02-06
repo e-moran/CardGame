@@ -26,6 +26,4 @@ public class CardRegistry {
     public Card getNewCardById(int id) {
         return cardRegistry.get(id).generateNewInstance();
     }
-
-
 }
