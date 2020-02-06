@@ -4,6 +4,7 @@ import com.eointm.cardgame.Deck;
 import com.eointm.cardgame.attributes.Attribute;
 import com.eointm.cardgame.cards.Card;
 import com.eointm.cardgame.cards.CardColour;
+import com.eointm.cardgame.cards.Minion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,13 +54,13 @@ class DeckTest {
     void addCardToDeck() {
         Deck test = new Deck();
 
-        test.addCardToDeck(new Card(1, "", 1, null));
+        test.addCardToDeck(new Minion(1,1,1, "", 1, null));
         assertEquals(1, test.getCardCount());
 
-        test.addCardToDeck(new Card(1, "", 1, null));
+        test.addCardToDeck(new Minion(1, 1, 1, "", 1, null));
         assertEquals(2, test.getCardCount());
 
-        test.addCardToDeck(new Card(1, "", 1, null));
+        test.addCardToDeck(new Minion(1, 1, 1, "", 1, null));
         assertEquals(3, test.getCardCount());
 
     }

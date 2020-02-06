@@ -60,4 +60,9 @@ public class Minion extends Card implements AttackableEntity {
         if(getHealth() <= 0)
             die();
     }
+
+    @Override
+    public Card generateNewInstance() {
+        return new Minion(attack, health, getId(), getName(), getManaCost(), getLocation(), getCardArt());
+    }
 }

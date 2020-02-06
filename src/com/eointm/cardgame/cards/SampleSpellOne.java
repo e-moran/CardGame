@@ -16,4 +16,9 @@ public class SampleSpellOne extends Card implements Spell {
         if(entity.canCurrentlyBeAttacked())
             entity.takeDamage(1);
     }
+
+    @Override
+    public Card generateNewInstance() {
+        return new SampleSpellOne();
+    }
 }
