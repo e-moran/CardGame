@@ -36,7 +36,6 @@ public class Deck {
         ArrayList<CardColour> diffColours = new ArrayList<>(4);
 
         for (Attribute attr : attrs) {
-            System.out.println(attr.getColour());
             if (!diffColours.contains(attr.getColour())) {
                 diffColours.add(attr.getColour());
             }
