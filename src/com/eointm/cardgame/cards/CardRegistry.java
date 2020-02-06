@@ -2,24 +2,25 @@ package com.eointm.cardgame.cards;
 
 import com.eointm.cardgame.exceptions.CardIndexUsedException;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CardRegistry {
-    private ArrayList<Card> cardRegistry;
+    private HashMap<Integer, Card> cardRegistry;
 
     public CardRegistry() {
-        cardRegistry = new ArrayList<>();
+        cardRegistry = new HashMap<>();
     }
 
     public void addCard(Card c) {
-        if(cardRegistry.get(c.getId()) != null)
+        if (cardRegistry.containsKey(c.getId())) {
             try {
-                throw new CardIndexUsedException("Could not add card, index already used");
+                throw new CardIndexUsedException("Could not add card, index " + c.getId() + " already in use");
             } catch (CardIndexUsedException e) {
                 e.printStackTrace();
             }
+        }
 
-        cardRegistry.add(c.getId(), c);
+        cardRegistry.put(c.getId(), c);
     }
 
     public Card getNewCardById(int id) {
