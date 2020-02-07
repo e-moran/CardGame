@@ -9,15 +9,15 @@ public class Minion extends Card implements AttackableEntity {
 
     private int attack, health;
 
-    public Minion(int attack, int health, int id, String name, int manaCost, CardArt art) {
-        super(id, name, manaCost, Location.DECK, art);
+    public Minion(int attack, int health, int id, String name, int manaCost, CardArt art, CardColour colour) {
+        super(id, name, manaCost, Location.DECK, art, colour);
 
         this.attack = attack;
         this.health = health;
     }
 
-    public Minion(int attack, int health, int id, String name, int manaCost, Location location, CardArt art) {
-        super(id, name, manaCost, location, art);
+    public Minion(int attack, int health, int id, String name, int manaCost, Location location, CardArt art, CardColour colour) {
+        super(id, name, manaCost, location, art, colour);
 
         this.attack = attack;
         this.health = health;
@@ -73,6 +73,6 @@ public class Minion extends Card implements AttackableEntity {
 
     @Override
     public Card generateNewInstance() {
-        return new Minion(attack, health, getId(), getName(), getManaCost(), getLocation(), getCardArt());
+        return new Minion(attack, health, getId(), getName(), getManaCost(), getLocation(), getCardArt(), getCardColour());
     }
 }

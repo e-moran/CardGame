@@ -6,6 +6,6 @@ package com.eointm.cardgame.cards;
 public class SampleMinionOne extends Minion {
 
     public SampleMinionOne() {
-        super(5, 3, 1, "Sample Minion One", 4, null);
+        super(5, 3, 1, "Sample Minion One", 4, null, CardColour.GREY);
     }
 }

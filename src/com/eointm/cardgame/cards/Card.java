@@ -10,21 +10,24 @@ public abstract class Card {
     private String name;
     private int id;
     private CardArt art;
+    private CardColour cardColour;
 
-    public Card(int id, String name, int manaCost, CardArt art) {
+    public Card(int id, String name, int manaCost, CardArt art, CardColour colour) {
         this.location = Location.DECK;
         this.manaCost = manaCost;
         this.id = id;
         this.name = name;
         this.art = art;
+        this.cardColour = colour;
     }
 
-    public Card(int id, String name, int manaCost, Location location, CardArt art) {
+    public Card(int id, String name, int manaCost, Location location, CardArt art, CardColour colour) {
         this.location = location;
         this.manaCost = manaCost;
         this.id = id;
         this.name = name;
         this.art = art;
+        this.cardColour = colour;
     }
 
     public Location getLocation() {
@@ -49,6 +52,10 @@ public abstract class Card {
 
     public CardArt getCardArt() {
         return art;
+    }
+
+    public CardColour getCardColour() {
+        return cardColour;
     }
 
     public abstract Card generateNewInstance();

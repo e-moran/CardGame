@@ -35,7 +35,7 @@ class AttributeTest {
             }
         };
 
-        Minion testMinion = new Minion(5, 4, 3, "", 4, null);
+        Minion testMinion = new Minion(5, 4, 3, "", 4, null, CardColour.BLUE);
 
         Deck d = new Deck();
         d.addAttribute(testAttrOne);

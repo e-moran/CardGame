@@ -9,7 +9,7 @@ import com.eointm.cardgame.types.AttackableEntity;
 public class SampleSpellOne extends Card implements Spell {
 
     public SampleSpellOne() {
-        super(2, "Sample Spell One", 1, null);
+        super(2, "Sample Spell One", 1, null, CardColour.BLUE);
     }
 
     @Override

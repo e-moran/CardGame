@@ -6,10 +6,13 @@ import com.eointm.cardgame.cards.CardColour;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Deck {
     ArrayList<Card> deck;
     ArrayList<Attribute> attrs;
+    private static final CardColour NEUTRAL_COLOUR = CardColour.GREY;
 
     public Deck() {
         deck = new ArrayList<>(30);
@@ -33,15 +36,7 @@ public class Deck {
     }
 
     public int getDiffAttrColourCount() {
-        ArrayList<CardColour> diffColours = new ArrayList<>(5);
-
-        for (Attribute attr : attrs) {
-            if (!diffColours.contains(attr.getColour())) {
-                diffColours.add(attr.getColour());
-            }
-        }
-
-        return diffColours.size();
+        return getDeckColours().size();
     }
 
     public int getAttributeCount() {
@@ -58,5 +53,30 @@ public class Deck {
 
     public int getCardCount() {
         return deck.size();
+    }
+
+    public int getMaxDuplicates() {
+        return 4 - getDiffAttrColourCount();
+    }
+
+    public ArrayList<CardColour> getDeckColours() {
+        ArrayList<CardColour> diffColours = new ArrayList<>(5);
+
+        for (Attribute attr : attrs) {
+            if (!diffColours.contains(attr.getColour())) {
+                diffColours.add(attr.getColour());
+            }
+        }
+
+        return diffColours;
+    }
+
+    public boolean canCardEnterDeck(Card c) {
+        List<Card> cardIds = deck.stream().filter(card -> card.getId() == c.getId()).collect(Collectors.toList());
+
+        if(cardIds.size() >= getMaxDuplicates())
+            return false;
+
+        return getDeckColours().contains(c.getCardColour()) || c.getCardColour() == NEUTRAL_COLOUR;
     }
 }

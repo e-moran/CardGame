@@ -1,5 +1,6 @@
 package com.eointm.cardgame.tests;
 
+import com.eointm.cardgame.cards.CardColour;
 import com.eointm.cardgame.cards.Location;
 import com.eointm.cardgame.cards.Minion;
 import org.junit.jupiter.api.Test;
@@ -10,8 +11,8 @@ class MinionTest {
 
     @Test
     void attack() {
-        Minion testMinionOne = new Minion(5, 4, 3, "", 4, null);
-        Minion testMinionTwo = new Minion(7, 6,  4, "", 2, null);
+        Minion testMinionOne = new Minion(5, 4, 3, "", 4, null, CardColour.BLUE);
+        Minion testMinionTwo = new Minion(7, 6,  4, "", 2, null,CardColour.BLUE);
 
         testMinionOne.attack(testMinionTwo);
 
@@ -22,17 +23,17 @@ class MinionTest {
 
     @Test
     void getAttack() {
-        assertEquals(4, new Minion(4, 4, 4, "", 4, null).getAttack());
+        assertEquals(4, new Minion(4, 4, 4, "", 4, null, CardColour.BLUE).getAttack());
     }
 
     @Test
     void getHealth() {
-        assertEquals(4, new Minion(4, 4, 4, "", 4, null).getHealth());
+        assertEquals(4, new Minion(4, 4, 4, "", 4, null, CardColour.BLUE).getHealth());
     }
 
     @Test
     void takeDamage() {
-        Minion testMinion = new Minion(5, 4, 1, "", 3, null);
+        Minion testMinion = new Minion(5, 4, 1, "", 3, null, CardColour.BLUE);
 
         testMinion.takeDamage(3);
         assertEquals(1, testMinion.getHealth());
@@ -44,7 +45,7 @@ class MinionTest {
 
     @Test
     void generateNewInstance() {
-        Minion testMinion = new Minion(5, 4, 1, "", 3, null);
+        Minion testMinion = new Minion(5, 4, 1, "", 3, null, CardColour.BLUE);
 
         assertEquals(testMinion, testMinion);
         assertNotEquals(testMinion, testMinion.generateNewInstance());
