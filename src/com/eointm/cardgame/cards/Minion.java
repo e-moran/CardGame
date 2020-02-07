@@ -1,5 +1,7 @@
 package com.eointm.cardgame.cards;
 
+import com.eointm.cardgame.Deck;
+import com.eointm.cardgame.attributes.Attribute;
 import com.eointm.cardgame.types.AttackableEntity;
 import com.eointm.cardgame.visual.CardArt;
 
@@ -49,13 +51,21 @@ public class Minion extends Card implements AttackableEntity {
         return attack;
     }
 
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
     public int getHealth() {
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     @Override
     public void takeDamage(int damage) {
-        this.health -= damage;
+        setHealth(getHealth() - damage);
 
         if(getHealth() <= 0)
             die();
