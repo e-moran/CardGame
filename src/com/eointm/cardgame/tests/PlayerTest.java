@@ -4,14 +4,14 @@ import com.eointm.cardgame.Deck;
 import com.eointm.cardgame.cards.Card;
 import com.eointm.cardgame.cards.SampleMinionOne;
 import com.eointm.cardgame.cards.SampleSpellOne;
-import com.eointm.cardgame.player.DeckInPlay;
+import com.eointm.cardgame.player.Player;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DeckInPlayTest {
+class PlayerTest {
 
-    public DeckInPlay generateDeck() {
+    public Player generateDeck() {
         Deck d = new Deck();
 
         d.addCardToDeck(new SampleMinionOne());
@@ -19,12 +19,12 @@ class DeckInPlayTest {
         d.addCardToDeck(new SampleSpellOne());
         d.addCardToDeck(new SampleSpellOne());
 
-        return new DeckInPlay(d);
+        return new Player(d);
     }
 
     @Test
     void drawCard() {
-        DeckInPlay d = generateDeck();
+        Player d = generateDeck();
 
         Card c = d.drawCard();
 
@@ -34,7 +34,7 @@ class DeckInPlayTest {
 
     @Test
     void getRemainingCards() {
-        DeckInPlay d = generateDeck();
+        Player d = generateDeck();
 
         assertEquals(4, d.getRemainingCards());
         d.drawCard();

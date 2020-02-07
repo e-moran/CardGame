@@ -5,11 +5,13 @@ import com.eointm.cardgame.cards.Card;
 
 import java.util.ArrayList;
 
-public class DeckInPlay {
+public class Player {
     private ArrayList<Card> deck;
+    private int currMana;
 
-    public DeckInPlay(Deck baseDeck) {
+    public Player(Deck baseDeck) {
         deck = baseDeck.getRandomisedDeck();
+        currMana = 1;
     }
 
     public Card drawCard() {
@@ -20,6 +22,14 @@ public class DeckInPlay {
 
     public int getRemainingCards() {
         return deck.size();
+    }
+
+    public void setCurrMana(int mana) {
+        this.currMana = mana;
+    }
+
+    public int getCurrMana() {
+        return currMana;
     }
 
 
