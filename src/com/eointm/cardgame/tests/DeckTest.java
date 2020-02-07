@@ -2,6 +2,7 @@ package com.eointm.cardgame.tests;
 
 import com.eointm.cardgame.Deck;
 import com.eointm.cardgame.attributes.Attribute;
+import com.eointm.cardgame.attributes.SampleAttribute;
 import com.eointm.cardgame.cards.Card;
 import com.eointm.cardgame.cards.CardColour;
 import com.eointm.cardgame.cards.Minion;
@@ -19,34 +20,34 @@ class DeckTest {
     void addAttribute() {
         Deck test = new Deck();
 
-        test.addAttribute(new Attribute(CardColour.BLACK));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
         assertEquals(1, test.getAttributeCount());
 
-        test.addAttribute(new Attribute(CardColour.BLACK));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
         assertEquals(2, test.getAttributeCount());
 
-        test.addAttribute(new Attribute(CardColour.BLACK));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
         assertEquals(3, test.getAttributeCount());
     }
 
     @Test
     void getDiffAttrColourCount() {
         Deck test = new Deck();
-        test.addAttribute(new Attribute(CardColour.BLACK));
-        test.addAttribute(new Attribute(CardColour.BLACK));
-        test.addAttribute(new Attribute(CardColour.BLACK));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
         assertEquals(1, test.getDiffAttrColourCount());
 
         test = new Deck();
-        test.addAttribute(new Attribute(CardColour.BLACK));
-        test.addAttribute(new Attribute(CardColour.GREEN));
-        test.addAttribute(new Attribute(CardColour.BLUE));
+        test.addAttribute(new SampleAttribute(CardColour.GREY));
+        test.addAttribute(new SampleAttribute(CardColour.YELLOW));
+        test.addAttribute(new SampleAttribute(CardColour.BLUE));
         assertEquals(3, test.getDiffAttrColourCount());
 
         test = new Deck();
-        test.addAttribute(new Attribute(CardColour.BLACK));
-        test.addAttribute(new Attribute(CardColour.BLUE));
-        test.addAttribute(new Attribute(CardColour.BLUE));
+        test.addAttribute(new SampleAttribute(CardColour.YELLOW));
+        test.addAttribute(new SampleAttribute(CardColour.BLUE));
+        test.addAttribute(new SampleAttribute(CardColour.BLUE));
         assertEquals(2, test.getDiffAttrColourCount());
     }
 

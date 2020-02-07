@@ -1,5 +1,7 @@
 package com.eointm.cardgame.cards;
 
+import com.eointm.cardgame.Deck;
+import com.eointm.cardgame.attributes.Attribute;
 import com.eointm.cardgame.visual.CardArt;
 
 public abstract class Card {
@@ -51,4 +53,9 @@ public abstract class Card {
 
     public abstract Card generateNewInstance();
 
+    public void applyDeckAttributes(Deck d) {
+        for(Attribute attrs: d.getAttributes()) {
+            attrs.applyAttributeToCard(this);
+        }
+    }
 }

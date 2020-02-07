@@ -33,7 +33,7 @@ public class Deck {
     }
 
     public int getDiffAttrColourCount() {
-        ArrayList<CardColour> diffColours = new ArrayList<>(4);
+        ArrayList<CardColour> diffColours = new ArrayList<>(5);
 
         for (Attribute attr : attrs) {
             if (!diffColours.contains(attr.getColour())) {
@@ -46,6 +46,10 @@ public class Deck {
 
     public int getAttributeCount() {
         return attrs.size();
+    }
+
+    public ArrayList<Attribute> getAttributes() {
+        return attrs;
     }
 
     public void addCardToDeck(Card c) {
