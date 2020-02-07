@@ -12,10 +12,11 @@ import java.util.stream.Collectors;
 public class Deck {
     ArrayList<Card> deck;
     ArrayList<Attribute> attrs;
-    private static final CardColour NEUTRAL_COLOUR = CardColour.GREY;
+    public static final CardColour NEUTRAL_COLOUR = CardColour.GREY;
+    public static final int MAX_DECK_SIZE = 30;
 
     public Deck() {
-        deck = new ArrayList<>(30);
+        deck = new ArrayList<>(MAX_DECK_SIZE);
         attrs = new ArrayList<>(3);
     }
 
@@ -75,6 +76,9 @@ public class Deck {
         List<Card> cardIds = deck.stream().filter(card -> card.getId() == c.getId()).collect(Collectors.toList());
 
         if(cardIds.size() >= getMaxDuplicates())
+            return false;
+
+        if(getCardCount() >= MAX_DECK_SIZE)
             return false;
 
         return getDeckColours().contains(c.getCardColour()) || c.getCardColour() == NEUTRAL_COLOUR;

@@ -150,10 +150,12 @@ class DeckTest {
 
         assertTrue(test.canCardEnterDeck(new Minion(1, 1, 0, "", 1, null, CardColour.BLUE)));
         test.addCardToDeck(new Minion(1, 1, 0, "", 1, null, CardColour.BLUE));
+        assertTrue(test.canCardEnterDeck(new Minion(1, 1, 0, "", 1, null, CardColour.BLUE)));
         test.addCardToDeck(new Minion(1, 1, 0, "", 1, null, CardColour.BLUE));
         test.addCardToDeck(new Minion(1, 1, 0, "", 1, null, CardColour.BLUE));
         assertFalse(test.canCardEnterDeck(new Minion(1, 1, 1, "", 1, null, CardColour.YELLOW)));
         assertTrue(test.canCardEnterDeck(new Minion(1, 1, 2, "", 1, null, CardColour.BLUE)));
+        assertFalse(test.canCardEnterDeck(new Minion(1, 1, 0, "", 1, null, CardColour.BLUE)));
 
 
         Deck testTwo = new Deck();
