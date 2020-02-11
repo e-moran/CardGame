@@ -1,6 +1,6 @@
 package com.eointm.cardgame.player;
 
-import com.eointm.cardgame.Deck;
+import com.eointm.cardgame.decks.Deck;
 import com.eointm.cardgame.cards.Card;
 
 import java.util.ArrayList;

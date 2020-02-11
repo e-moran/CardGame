@@ -1,6 +1,6 @@
 package com.eointm.cardgame.cards;
 
-import com.eointm.cardgame.Deck;
+import com.eointm.cardgame.decks.Deck;
 import com.eointm.cardgame.types.AttackableEntity;
 
 /**

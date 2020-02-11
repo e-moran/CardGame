@@ -1,6 +1,6 @@
 package com.eointm.cardgame.tests;
 
-import com.eointm.cardgame.Deck;
+import com.eointm.cardgame.decks.Deck;
 import com.eointm.cardgame.cards.Card;
 import com.eointm.cardgame.cards.SampleMinionOne;
 import com.eointm.cardgame.cards.SampleSpellOne;

@@ -1,4 +1,4 @@
-package com.eointm.cardgame;
+package com.eointm.cardgame.decks;
 
 import com.eointm.cardgame.attributes.Attribute;
 import com.eointm.cardgame.cards.Card;
@@ -10,10 +10,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Deck {
+    String deckName;
     ArrayList<Card> deck;
     ArrayList<Attribute> attrs;
     public static final CardColour NEUTRAL_COLOUR = CardColour.GREY;
     public static final int MAX_DECK_SIZE = 30;
+
+    public Deck(String name) {
+        this.deckName = name;
+        deck = new ArrayList<>(MAX_DECK_SIZE);
+        attrs = new ArrayList<>(3);
+    }
 
     public Deck() {
         deck = new ArrayList<>(MAX_DECK_SIZE);
@@ -54,6 +61,18 @@ public class Deck {
 
     public int getCardCount() {
         return deck.size();
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Your deck " + this.deckName + " contains:\n");
+        for(Card card: deck) {
+            sb.append(card.getId());
+            sb.append(": ");
+            sb.append(card.getName());
+            sb.append(" ");
+        }
+
+        return sb.toString();
     }
 
     public int getMaxDuplicates() {

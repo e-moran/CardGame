@@ -1,6 +1,6 @@
 package com.eointm.cardgame.tests;
 
-import com.eointm.cardgame.Deck;
+import com.eointm.cardgame.decks.Deck;
 import com.eointm.cardgame.attributes.Attribute;
 import com.eointm.cardgame.attributes.SampleAttribute;
 import com.eointm.cardgame.cards.Card;
@@ -18,7 +18,7 @@ class DeckTest {
 
     @Test
     void addAttribute() {
-        Deck test = new Deck();
+        Deck test = new Deck("");
 
         test.addAttribute(new SampleAttribute(CardColour.GREY));
         assertEquals(1, test.getAttributeCount());
@@ -32,19 +32,19 @@ class DeckTest {
 
     @Test
     void getDiffAttrColourCount() {
-        Deck test = new Deck();
+        Deck test = new Deck("");
         test.addAttribute(new SampleAttribute(CardColour.GREY));
         test.addAttribute(new SampleAttribute(CardColour.GREY));
         test.addAttribute(new SampleAttribute(CardColour.GREY));
         assertEquals(1, test.getDiffAttrColourCount());
 
-        test = new Deck();
+        test = new Deck("");
         test.addAttribute(new SampleAttribute(CardColour.GREY));
         test.addAttribute(new SampleAttribute(CardColour.YELLOW));
         test.addAttribute(new SampleAttribute(CardColour.BLUE));
         assertEquals(3, test.getDiffAttrColourCount());
 
-        test = new Deck();
+        test = new Deck("");
         test.addAttribute(new SampleAttribute(CardColour.YELLOW));
         test.addAttribute(new SampleAttribute(CardColour.BLUE));
         test.addAttribute(new SampleAttribute(CardColour.BLUE));
@@ -53,7 +53,7 @@ class DeckTest {
 
     @Test
     void addCardToDeck() {
-        Deck test = new Deck();
+        Deck test = new Deck("");
 
         test.addCardToDeck(new Minion(1,1,1, "", 1, null, CardColour.GREY));
         assertEquals(1, test.getCardCount());
