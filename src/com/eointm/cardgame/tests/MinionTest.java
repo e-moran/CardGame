@@ -1,6 +1,7 @@
 package com.eointm.cardgame.tests;
 
 import com.eointm.cardgame.cards.CardColour;
+import com.eointm.cardgame.cards.CardRarity;
 import com.eointm.cardgame.cards.Location;
 import com.eointm.cardgame.cards.Minion;
 import org.junit.jupiter.api.Test;
@@ -41,6 +42,19 @@ class MinionTest {
         testMinion.takeDamage(2);
         assertEquals(-1, testMinion.getHealth());
         assertEquals(Location.GRAVEYARD, testMinion.getLocation());
+
+        Minion testMinionTwo = new Minion(5, 2, 2, 1, "", 3, Location.BOARD, null, CardColour.BLUE, CardRarity.SILICON);
+
+        testMinionTwo.takeDamage(1);
+        assertEquals(1, testMinionTwo.getForcefield());
+
+        testMinionTwo.takeDamage(2);
+        assertEquals(0, testMinionTwo.getForcefield());
+        assertEquals(1, testMinionTwo.getHealth());
+
+        testMinionTwo.takeDamage(2);
+        assertEquals(-1, testMinionTwo.getHealth());
+        assertEquals(Location.GRAVEYARD, testMinionTwo.getLocation());
     }
 
     @Test

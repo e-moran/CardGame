@@ -11,17 +11,17 @@ public abstract class Card {
     private int id;
     private CardArt art;
     private CardColour cardColour;
+    private CardRarity cardRarity;
 
     public Card(int id, String name, int manaCost, CardArt art, CardColour colour) {
-        this.location = Location.DECK;
-        this.manaCost = manaCost;
-        this.id = id;
-        this.name = name;
-        this.art = art;
-        this.cardColour = colour;
+        this(id, name, manaCost, Location.DECK, art, colour, CardRarity.SILICON);
     }
 
     public Card(int id, String name, int manaCost, Location location, CardArt art, CardColour colour) {
+        this(id, name, manaCost, location, art, colour, CardRarity.SILICON);
+    }
+
+    public Card(int id, String name, int manaCost, Location location, CardArt art, CardColour colour, CardRarity rarity) {
         this.location = location;
         this.manaCost = manaCost;
         this.id = id;

@@ -11,6 +11,11 @@ public class CardRegistry {
         cardRegistry = new HashMap<>();
     }
 
+    public void registerCards() {
+        addCard(new SampleMinionOne());
+        addCard(new SampleSpellOne());
+    }
+
     public void addCard(Card c) {
         if (cardRegistry.containsKey(c.getId())) {
             try {

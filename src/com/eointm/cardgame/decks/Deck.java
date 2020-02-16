@@ -69,7 +69,7 @@ public class Deck {
             sb.append(card.getId());
             sb.append(": ");
             sb.append(card.getName());
-            sb.append(" ");
+            sb.append("\n");
         }
 
         return sb.toString();

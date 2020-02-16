@@ -1,26 +1,25 @@
 package com.eointm.cardgame.cards;
 
-import com.eointm.cardgame.decks.Deck;
-import com.eointm.cardgame.attributes.Attribute;
 import com.eointm.cardgame.types.AttackableEntity;
 import com.eointm.cardgame.visual.CardArt;
 
 public class Minion extends Card implements AttackableEntity {
 
-    private int attack, health;
+    private int attack, health, forcefield;
 
     public Minion(int attack, int health, int id, String name, int manaCost, CardArt art, CardColour colour) {
-        super(id, name, manaCost, Location.DECK, art, colour);
-
-        this.attack = attack;
-        this.health = health;
+        this(attack, health, id, name, manaCost, Location.DECK, art, colour);
     }
 
     public Minion(int attack, int health, int id, String name, int manaCost, Location location, CardArt art, CardColour colour) {
-        super(id, name, manaCost, location, art, colour);
+        this(attack, health, 0, id, name, manaCost, location, art, colour, CardRarity.SILICON);
+    }
 
+    public Minion(int attack, int health, int forcefield, int id, String name, int manaCost, Location location, CardArt art, CardColour colour, CardRarity rarity) {
+        super(id, name, manaCost, location, art, colour, rarity);
         this.attack = attack;
         this.health = health;
+        this.forcefield = forcefield;
     }
 
     public boolean attack(AttackableEntity entity) {
@@ -63,9 +62,29 @@ public class Minion extends Card implements AttackableEntity {
         this.health = health;
     }
 
+    public int getForcefield() {
+        return forcefield;
+    }
+
+    public void setForcefield(int forcefield) {
+        this.forcefield = forcefield;
+    }
+
     @Override
     public void takeDamage(int damage) {
-        setHealth(getHealth() - damage);
+        int forcefieldDmg;
+        int remainingDmg;
+
+        if(getForcefield() < damage) {
+            forcefieldDmg = getForcefield();
+            remainingDmg = damage - forcefieldDmg;
+        } else {
+            forcefieldDmg = damage;
+            remainingDmg = 0;
+        }
+
+        setForcefield(getForcefield() - forcefieldDmg);
+        setHealth(getHealth() - remainingDmg);
 
         if(getHealth() <= 0)
             die();
